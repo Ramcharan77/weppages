@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android App</title>
+    <link href="styles.css" rel="stylesheet"> <!-- Link the external stylesheet -->
+</head>
+<body>
+    <div id="page1" class="centered-content">
+        <img src="images/top bar.png" weight="50" height="45">
+        <br>
+        <br>
+        <br>
+        <a href="#page3" onclick="navigateTo('page3')" class="skip-link1"><u>Skip</u></a>
+        <br>
+        <br>
+        <br>
+        <img src="images/run.png" alt="Image" style="max-width: 100%; height: auto;">
+        <h3>Track Your Goal</h3>
+        
+        <pre>Don't worry if you have trouble 
+determining your goals, We can help you 
+determine your goals and track your</pre>
+        
+        <div class="container"></div>
+        <button onclick="navigateTo('page2')" class="image"><img src="./images/next1.png" width="50px" height="50px"></button>
+    </div>
+    
+    <!-- Page 2 -->
+    <div id="page2" style="display: none;" class="centered-content">
+        <img src="images/top bar.png" weight="50" height="45">
+        <br>
+        <br>
+        <br>
+        <a href="#page3" onclick="navigateTo('page3')" class="skip-link1"><u>Skip</u></a>
+        <br>
+        <br>
+        <br>
+        <img src="images/Cyclic.png" alt="Image" style="max-width: 100%; height: auto;">
+        <h3>Track Your Goal</h3>
+        
+        <pre>Don't worry if you have trouble 
+determining your goals, We can help you 
+determine your goals and track your</pre>
+        
+        <div class="container"></div>
+        <button onclick="navigateTo('page3')" class="image"><img src="./images/next1.png" width="50px" height="50px"></button>
+    </div>
+
+    <!-- Remaining pages -->
+    <div id="page3" style="display: none;"  class="centered-content">
+        <img src="images/top bar.png" weight="50" height="45">
+        <br>
+        <br>
+        <br>
+        <h2>Create an account</h2>
+        <br>
+        <br>
+        <br>
+        <form>
+            <div>
+            <input type="text" placeholder="First Name">
+        </div>
+            <br>
+            <div>
+            <input type="text" placeholder="Last Name">
+        </div>
+            <br>
+            <div>
+            <input type="email" placeholder="Email">
+        </div>
+            <br>
+            <div>
+            <input type="password" placeholder="Password">
+        </div>
+            <br>
+            <div>
+            <input type="checkbox">By proceeding,I agree to all <u style="color:blue;">T&C</u> and <u style="color: blue;">Privacy Policy</u>
+        </div>
+        <br>
+
+        <div>
+            <button onclick="navigateTo('page5')" class="blue-button">Next</button>
+
+        </div>
+        
+    </form>
+        <br>
+        <img src="./images/bottom bar.png" weight="50" height="125">
+        <br>
+        <a href="#page4" onclick="navigateTo('page4')">Already have an account? <u style="color: blue;">Login</u></a>
+
+    </div>
+   
+    <div id="page4" style="display: none;" class="centered-content">
+        <img src="images/top bar.png" weight="50" height="45">
+        <br>
+        <br>
+        <br>
+        <h2>Create an account</h2>
+        <br>
+        <br>
+        <br>
+        <form>
+            <div>
+            <input type="email" placeholder="Email">
+        </div>
+            <br>
+            <div>
+            <input type="password" placeholder="Password">
+       
+        <br>
+
+        <div>
+            <h5><u>Forgot Password</u></h5>
+        </div>
+        <div>
+            <button  class="blue-button">Sign In</button>
+        </div>
+    </form>
+        <br>
+        <img src="./images/bottom bar.png" weight="50" height="125">
+        <br>
+        <a href="#page3" onclick="navigateTo('page3')">Don't Have an account yet? <u style="color: blue;">Create an account</u></a>
+        
+    </div>
+
+    <div id="page5" style="display: none;" class="centered-content">
+        <h2>What are your goals?</h2> 
+        <div>
+            <label>Weight Loss</label>
+            <input type="checkbox">
+        </div>
+        <div>
+            <label>Muscle Gain</label>
+            <input type="checkbox">
+        </div>
+        <div>
+            <label>Flexiblity and Mobility</label>
+            <input type="checkbox">
+        </div>
+        <div>
+            <label>General Fitness</label>
+            <input type="checkbox">
+        </div>
+        <div>
+            <label>Event - specific training</label>
+            <input type="checkbox">
+        </div>
+        <div>
+            <label>Mindfulness and Mental Health</label>
+            <input type="checkbox">
+        </div>
+        <button>Confirm</button>
+        </div>
+
+
+    <script>
+        // Function to update time dynamically
+        function updateTime() {
+            var currentTime = new Date();
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            hours = hours % 12;
+            hours = hours ? hours : 12; // Handle midnight
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            var timeString = hours + ':' + minutes;
+            document.getElementById('time').innerText = timeString;
+        }
+
+        // Update time initially and every second
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        // Function to navigate between pages
+        function navigateTo(pageId) {
+            // Hide all pages
+            var pages = document.querySelectorAll('div[id^="page"]');
+            pages.forEach(function(page) {
+                page.style.display = 'none';
+            });
+
+            // Show the selected page
+            var nextPage = document.getElementById(pageId);
+            nextPage.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
